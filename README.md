@@ -17,7 +17,11 @@
 
 ## Usage
 
-1. Not yet
+1. Clone this repository locally, and `cd` into it.
+2. Copy the flavour you want from `./dist` to `~/.config/k9s/skin.yml`:
+```bash
+cp ./dist/frappe.yml ~/.config/skin.yml
+```
 
 ## 💝 Thanks to
 
