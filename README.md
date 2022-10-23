@@ -40,7 +40,7 @@
 2. Copy the flavour you want from `./dist` to `~/.config/k9s/skin.yml`:
 
 ```bash
-cp ./dist/frappe.yml ~/.config/skin.yml
+cp ./dist/frappe.yml ~/.config/k9s/skin.yml
 ```
 
 ## 💝 Thanks to
