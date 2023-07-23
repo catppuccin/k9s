@@ -34,13 +34,23 @@
 <img src="assets/mocha.webp"/>
 </details>
 
-## Usage
+## How to Install 
 
-1. Clone this repository locally, and `cd` into it.
-2. Copy the flavour you want from `./dist` to `~/.config/k9s/skin.yml`:
+Clone this repository locally and copy the flavour you want:
 
+<b>Linux:</b>
 ```bash
-cp ./dist/frappe.yml ~/.config/k9s/skin.yml
+K9S_CONFIG_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/k9s"
+git clone https://github.com/catppuccin/k9s.git "${K9S_CONFIG_PATH}/skins/catppuccin" --depth 1
+cp "${K9S_CONFIG_PATH}/skins/catppuccin/dist/frappe.yml" "${K9S_CONFIG_PATH}/skin.yml"
+```
+
+
+<b>Mac OS:</b>
+```bash
+K9S_CONFIG_PATH="${XDG_CONFIG_HOME:-$HOME/Library/Application Support}/k9s"
+git clone https://github.com/catppuccin/k9s.git "${K9S_CONFIG_PATH}/skins/catppuccin" --depth 1
+cp "${K9S_CONFIG_PATH}/skins/catppuccin/dist/mocha.yml" "${K9S_CONFIG_PATH}/skin.yml"
 ```
 
 ## 💝 Thanks to
