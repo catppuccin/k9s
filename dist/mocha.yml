@@ -1,158 +1,98 @@
-base: &base "#1e1e2e"
-blue: &blue "#89b4fa"
-crust: &crust "#11111b"
-flamingo: &flamingo "#f2cdcd"
-green: &green "#a6e3a1"
-lavender: &lavender "#b4befe"
-mantle: &mantle "#181825"
-maroon: &maroon "#eba0ac"
-mauve: &mauve "#cba6f7"
-overlay0: &overlay0 "#6c7086"
-overlay1: &overlay1 "#7f849c"
-overlay2: &overlay2 "#9399b2"
-peach: &peach "#fab387"
-pink: &pink "#f5c2e7"
-red: &red "#f38ba8"
-rosewater: &rosewater "#f5e0dc"
-sapphire: &sapphire "#74c7ec"
-sky: &sky "#89dceb"
-subtext0: &subtext0 "#a6adc8"
-subtext1: &subtext1 "#bac2de"
-surface0: &surface0 "#313244"
-surface1: &surface1 "#45475a"
-surface2: &surface2 "#585b70"
-teal: &teal "#94e2d5"
-text: &text "#cdd6f4"
-yellow: &yellow "#f9e2af"
-
-# Skin...
 k9s:
-  # General K9s styles
   body:
-    fgColor: *text
-    bgColor: *base
-    logoColor: *mauve
-
-  # Command prompt styles
+    fgColor: '#cdd6f4'
+    bgColor: '#1e1e2e'
+    logoColor: '#cba6f7'
   prompt:
-    fgColor: *text
-    bgColor: *mantle
-    suggestColor: *blue
-
-  # ClusterInfoView styles.
+    fgColor: '#cdd6f4'
+    bgColor: '#181825'
+    suggestColor: '#89b4fa'
   info:
-    fgColor: *peach
-    sectionColor: *text
-
-  # Dialog styles.
+    fgColor: '#fab387'
+    sectionColor: '#cdd6f4'
   dialog:
-    fgColor: *yellow
-    bgColor: *overlay2
-    buttonFgColor: *base
-    buttonBgColor: *overlay1
-    buttonFocusFgColor: *base
-    buttonFocusBgColor: *pink
-    labelFgColor: *rosewater
-    fieldFgColor: *text
-
+    fgColor: '#f9e2af'
+    bgColor: '#9399b2'
+    buttonFgColor: '#1e1e2e'
+    buttonBgColor: '#7f849c'
+    buttonFocusFgColor: '#1e1e2e'
+    buttonFocusBgColor: '#f5c2e7'
+    labelFgColor: '#f5e0dc'
+    fieldFgColor: '#cdd6f4'
   frame:
-    # Borders styles.
     border:
-      fgColor: *mauve
-      focusColor: *lavender
-
-    # MenuView attributes and styles
+      fgColor: '#cba6f7'
+      focusColor: '#b4befe'
     menu:
-      fgColor: *text
-      keyColor: *blue
-      # Used for favorite namespaces
-      numKeyColor: *maroon
-
-    # CrumbView attributes for history navigation.
+      fgColor: '#cdd6f4'
+      keyColor: '#89b4fa'
+      numKeyColor: '#eba0ac'
     crumbs:
-      fgColor: *base
-      bgColor: *maroon
-      activeColor: *flamingo
-
-    # Resource status and update styles
+      fgColor: '#1e1e2e'
+      bgColor: '#eba0ac'
+      activeColor: '#f2cdcd'
     status:
-      newColor: *blue
-      modifyColor: *lavender
-      addColor: *green
-      pendingColor: *peach
-      errorColor: *red
-      highlightColor: *sky
-      killColor: *mauve
-      completedColor: *overlay0
-
-    # Border title styles.
+      newColor: '#89b4fa'
+      modifyColor: '#b4befe'
+      addColor: '#a6e3a1'
+      pendingColor: '#fab387'
+      errorColor: '#f38ba8'
+      highlightColor: '#89dceb'
+      killColor: '#cba6f7'
+      completedColor: '#6c7086'
     title:
-      fgColor: *teal
-      bgColor: *base
-      highlightColor: *pink
-      counterColor: *yellow
-      filterColor: *green
-
+      fgColor: '#94e2d5'
+      bgColor: '#1e1e2e'
+      highlightColor: '#f5c2e7'
+      counterColor: '#f9e2af'
+      filterColor: '#a6e3a1'
   views:
-    # Charts skins...
     charts:
-      bgColor: *base
-      chartBgColor: *base
-      dialBgColor: *base
+      bgColor: '#1e1e2e'
+      chartBgColor: '#1e1e2e'
+      dialBgColor: '#1e1e2e'
       defaultDialColors:
-        - *green
-        - *red
+        - '#a6e3a1'
+        - '#f38ba8'
       defaultChartColors:
-        - *green
-        - *red
+        - '#a6e3a1'
+        - '#f38ba8'
       resourceColors:
         cpu:
-          - *mauve
-          - *blue
+          - '#cba6f7'
+          - '#89b4fa'
         mem:
-          - *yellow
-          - *peach
-
-    # TableView attributes.
+          - '#f9e2af'
+          - '#fab387'
     table:
-      fgColor: *text #Doesn't Work
-      bgColor: *base
-      cursorFgColor: *surface0 # Doesn't Work
-      cursorBgColor: *surface1 # should be rosewater
-      markColor: *rosewater # Doesn't Work
-      # Header row styles.
+      fgColor: '#cdd6f4'
+      bgColor: '#1e1e2e'
+      cursorFgColor: '#313244'
+      cursorBgColor: '#45475a'
+      markColor: '#f5e0dc'
       header:
-        fgColor: *yellow
-        bgColor: *base
-        sorterColor: *sky
-
-    # Xray view attributes.
+        fgColor: '#f9e2af'
+        bgColor: '#1e1e2e'
+        sorterColor: '#89dceb'
     xray:
-      fgColor: *text #Doesn't Work
-      bgColor: *base
-      # Need to set this to a dark color since color text can't be changed
-      # Ideally this would be rosewater
-      cursorColor: *surface1
-      cursorTextColor: *base #Doesn't Work
-      graphicColor: *pink
-
-    # YAML info styles.
+      fgColor: '#cdd6f4'
+      bgColor: '#1e1e2e'
+      cursorColor: '#45475a'
+      cursorTextColor: '#1e1e2e'
+      graphicColor: '#f5c2e7'
     yaml:
-      keyColor: *blue
-      colonColor: *subtext0
-      valueColor: *text
-
-    # Logs styles.
+      keyColor: '#89b4fa'
+      colonColor: '#a6adc8'
+      valueColor: '#cdd6f4'
     logs:
-      fgColor: *text
-      bgColor: *base
+      fgColor: '#cdd6f4'
+      bgColor: '#1e1e2e'
       indicator:
-        fgColor: *lavender
-        bgColor: *base
-
+        fgColor: '#b4befe'
+        bgColor: '#1e1e2e'
   help:
-    fgColor: *text
-    bgColor: *base
-    sectionColor: *green
-    keyColor: *blue
-    numKeyColor: *maroon
+    fgColor: '#cdd6f4'
+    bgColor: '#1e1e2e'
+    sectionColor: '#a6e3a1'
+    keyColor: '#89b4fa'
+    numKeyColor: '#eba0ac'
