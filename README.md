@@ -34,23 +34,38 @@
 <img src="assets/mocha.webp"/>
 </details>
 
-## How to Install 
+## Usage
 
-Clone this repository locally and copy the flavour you want:
 
-<b>Linux:</b>
+1. Download the theme files & copy them into your k9s skins directory.
+
+### Linux
 ```bash
-K9S_CONFIG_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/k9s"
-git clone https://github.com/catppuccin/k9s.git "${K9S_CONFIG_PATH}/skins/catppuccin" --depth 1
-cp "${K9S_CONFIG_PATH}/skins/catppuccin/dist/frappe.yml" "${K9S_CONFIG_PATH}/skin.yml"
+OUT="${XDG_CONFIG_HOME:-$HOME/.config}/k9s/skins"
+curl -L https://github.com/catppuccin/k9s/archive/main.tar.gz | tar x  -C "$OUT" --strip-components=2 k9s-main/dist
 ```
 
-
-<b>Mac OS:</b>
+### macOS
 ```bash
-K9S_CONFIG_PATH="${XDG_CONFIG_HOME:-$HOME/Library/Application Support}/k9s"
-git clone https://github.com/catppuccin/k9s.git "${K9S_CONFIG_PATH}/skins/catppuccin" --depth 1
-cp "${K9S_CONFIG_PATH}/skins/catppuccin/dist/mocha.yml" "${K9S_CONFIG_PATH}/skin.yml"
+OUT="${XDG_CONFIG_HOME:-$HOME/Library/Application Support}/k9s/skins"
+curl -L https://github.com/catppuccin/k9s/archive/main.tar.gz | tar x  -C "$OUT" --strip-components=2 k9s-main/dist
+```
+
+2. Edit your `config.yaml` so that it sets `k9s.ui.skin` to a Catppuccin flavor.
+```yaml
+k9s:
+  ui:
+    skin: catppuccin-mocha
+	# ...or another flavor:
+	# skin: catppuccin-macchiato
+	# skin: catppuccin-frappe
+	# skin: catppuccin-latte
+
+	# ...or the transparent variants:
+	# skin: catppuccin-mocha-transparent
+	# skin: catppuccin-macchiato-transparent
+	# skin: catppuccin-frappe-transparent
+	# skin: catppuccin-latte-transparent
 ```
 
 ## 💝 Thanks to
