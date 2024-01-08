@@ -1,47 +1,41 @@
-#!/usr/bin/env -S deno run --allow-write=dist
+#!/usr/bin/env -S deno run --allow-write=./dist
 import { stringify } from "https://deno.land/std@0.210.0/yaml/stringify.ts";
 import {
-  ColorName,
+  type Colors,
   flavorEntries,
-} from "https://deno.land/x/catppuccin@v1.0.1/mod.ts";
+} from "https://deno.land/x/catppuccin@v1.0.3/mod.ts";
 
-flavorEntries.map(([flavorName, flavor]) => {
-  const p = flavor.colorEntries.reduce((acc, [name, color]) => {
-    acc[name] = color.hex;
-    return acc;
-  }, {} as Record<ColorName, string>);
+const theme = (p: Colors<string>, transparent = false) => {
+  const t = (c: string) => transparent ? "default" : c;
 
-  const theme = {
-    // general K9s styles
+  const definitions = {
     body: {
       fgColor: p.text,
-      bgColor: p.base,
+      bgColor: t(p.base),
       logoColor: p.mauve,
     },
-    // Command prompt styles
     prompt: {
       fgColor: p.text,
-      bgColor: p.mantle,
+      bgColor: t(p.mantle),
       suggestColor: p.blue,
     },
-    // ClusterInfoView styles.
-    info: {
-      fgColor: p.peach,
-      sectionColor: p.text,
-    },
-    // Dialog styles.
-    dialog: {
-      fgColor: p.yellow,
-      bgColor: p.overlay2,
-      buttonFgColor: p.base,
-      buttonBgColor: p.overlay1,
-      buttonFocusFgColor: p.base,
-      buttonFocusBgColor: p.pink,
-      labelFgColor: p.rosewater,
-      fieldFgColor: p.text,
+    help: {
+      fgColor: p.text,
+      bgColor: t(p.base),
+      sectionColor: p.green,
+      keyColor: p.blue,
+      numKeyColor: p.maroon,
     },
     frame: {
-      // Borders styles.
+      // border title styles
+      title: {
+        fgColor: p.teal,
+        bgColor: t(p.base),
+        highlightColor: p.pink,
+        counterColor: p.yellow,
+        filterColor: p.green,
+      },
+      // borders styles
       border: {
         fgColor: p.mauve,
         focusColor: p.lavender,
@@ -50,16 +44,16 @@ flavorEntries.map(([flavorName, flavor]) => {
       menu: {
         fgColor: p.text,
         keyColor: p.blue,
-        // Used for favorite namespaces
+        // used for favorite namespaces
         numKeyColor: p.maroon,
       },
-      // CrumbView attributes for history navigation.
+      // history navigation
       crumbs: {
         fgColor: p.base,
-        bgColor: p.maroon,
+        bgColor: t(p.maroon),
         activeColor: p.flamingo,
       },
-      // Resource status and update styles
+      // resource status and update styles
       status: {
         newColor: p.blue,
         modifyColor: p.lavender,
@@ -70,92 +64,86 @@ flavorEntries.map(([flavorName, flavor]) => {
         killColor: p.mauve,
         completedColor: p.overlay0,
       },
-      // Border title styles.
-      title: {
-        fgColor: p.teal,
-        bgColor: p.base,
-        highlightColor: p.pink,
-        counterColor: p.yellow,
-        filterColor: p.green,
-      },
+    },
+    // ClusterInfoView styles
+    info: {
+      fgColor: p.peach,
+      sectionColor: p.text,
     },
     views: {
-      // Charts skins...
-      charts: {
-        bgColor: p.base,
-        chartBgColor: p.base,
-        dialBgColor: p.base,
-        defaultDialColors: [
-          p.green,
-          p.red,
-        ],
-        defaultChartColors: [
-          p.green,
-          p.red,
-        ],
-        resourceColors: {
-          cpu: [
-            p.mauve,
-            p.blue,
-          ],
-          mem: [
-            p.yellow,
-            p.peach,
-          ],
-        },
-      },
-      // TableView attributes.
       table: {
-        fgColor: p.text, // Doesn't Work
-        bgColor: p.base,
-        cursorFgColor: p.surface0, // Doesn't Work
-        cursorBgColor: p.surface1, // should be rosewater
-        markColor: p.rosewater, // Doesn't Work
-        // Header row styles.
+        fgColor: p.text,
+        bgColor: t(p.base),
+        cursorFgColor: p.surface0,
+        cursorBgColor: p.surface1,
+        markColor: p.rosewater,
         header: {
           fgColor: p.yellow,
-          bgColor: p.base,
+          bgColor: t(p.base),
           sorterColor: p.sky,
         },
       },
-      // Xray view attributes.
       xray: {
-        fgColor: p.text, //Doesn't Work
-        bgColor: p.base,
-        // Need to set this to a dark color since color text can't be changed
-        // Ideally this would be rosewater
+        fgColor: p.text,
+        bgColor: t(p.base),
         cursorColor: p.surface1,
-        cursorTextColor: p.base, //Doesn't Work
+        cursorTextColor: p.base,
         graphicColor: p.pink,
       },
-      // YAML info styles.
+      charts: {
+        bgColor: t(p.base),
+        chartBgColor: t(p.base),
+        dialBgColor: t(p.base),
+        defaultDialColors: [p.green, p.red],
+        defaultChartColors: [p.green, p.red],
+        resourceColors: {
+          cpu: [p.mauve, p.blue],
+          mem: [p.yellow, p.peach],
+        },
+      },
       yaml: {
         keyColor: p.blue,
-        colonColor: p.subtext0,
         valueColor: p.text,
+        colonColor: p.subtext0,
       },
-      // Logs styles.
       logs: {
         fgColor: p.text,
-        bgColor: p.base,
+        bgColor: t(p.base),
         indicator: {
           fgColor: p.lavender,
-          bgColor: p.base,
+          bgColor: t(p.base),
+          toggleOnColor: p.green,
+          toggleOffColor: p.subtext0,
         },
       },
     },
-    help: {
-      fgColor: p.text,
-      bgColor: p.base,
-      sectionColor: p.green,
-      keyColor: p.blue,
-      numKeyColor: p.maroon,
+    dialog: {
+      fgColor: p.yellow,
+      bgColor: t(p.overlay2),
+      buttonFgColor: p.base,
+      buttonBgColor: t(p.overlay1),
+      buttonFocusFgColor: p.base,
+      buttonFocusBgColor: p.pink,
+      labelFgColor: p.rosewater,
+      fieldFgColor: p.text,
     },
   };
 
-  const yaml = stringify({
-    k9s: theme,
-  });
+  return stringify({ k9s: definitions });
+};
 
-  Deno.writeTextFileSync(`./dist/${flavorName}.yml`, yaml);
-});
+for (const [flavorName, flavor] of flavorEntries) {
+  const palette = {} as Colors<string>;
+  for (const [name, color] of flavor.colorEntries) {
+    palette[name] = color.hex;
+  }
+
+  Deno.writeTextFileSync(
+    `./dist/catppuccin-${flavorName}.yaml`,
+    theme(palette, false),
+  );
+  Deno.writeTextFileSync(
+    `./dist/catppuccin-${flavorName}-transparent.yaml`,
+    theme(palette, true),
+  );
+}

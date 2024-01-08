@@ -7,19 +7,19 @@ k9s:
     fgColor: '#cad3f5'
     bgColor: '#1e2030'
     suggestColor: '#8aadf4'
-  info:
-    fgColor: '#f5a97f'
-    sectionColor: '#cad3f5'
-  dialog:
-    fgColor: '#eed49f'
-    bgColor: '#939ab7'
-    buttonFgColor: '#24273a'
-    buttonBgColor: '#8087a2'
-    buttonFocusFgColor: '#24273a'
-    buttonFocusBgColor: '#f5bde6'
-    labelFgColor: '#f4dbd6'
-    fieldFgColor: '#cad3f5'
+  help:
+    fgColor: '#cad3f5'
+    bgColor: '#24273a'
+    sectionColor: '#a6da95'
+    keyColor: '#8aadf4'
+    numKeyColor: '#ee99a0'
   frame:
+    title:
+      fgColor: '#8bd5ca'
+      bgColor: '#24273a'
+      highlightColor: '#f5bde6'
+      counterColor: '#eed49f'
+      filterColor: '#a6da95'
     border:
       fgColor: '#c6a0f6'
       focusColor: '#b7bdf8'
@@ -40,13 +40,26 @@ k9s:
       highlightColor: '#91d7e3'
       killColor: '#c6a0f6'
       completedColor: '#6e738d'
-    title:
-      fgColor: '#8bd5ca'
-      bgColor: '#24273a'
-      highlightColor: '#f5bde6'
-      counterColor: '#eed49f'
-      filterColor: '#a6da95'
+  info:
+    fgColor: '#f5a97f'
+    sectionColor: '#cad3f5'
   views:
+    table:
+      fgColor: '#cad3f5'
+      bgColor: '#24273a'
+      cursorFgColor: '#363a4f'
+      cursorBgColor: '#494d64'
+      markColor: '#f4dbd6'
+      header:
+        fgColor: '#eed49f'
+        bgColor: '#24273a'
+        sorterColor: '#91d7e3'
+    xray:
+      fgColor: '#cad3f5'
+      bgColor: '#24273a'
+      cursorColor: '#494d64'
+      cursorTextColor: '#24273a'
+      graphicColor: '#f5bde6'
     charts:
       bgColor: '#24273a'
       chartBgColor: '#24273a'
@@ -64,35 +77,24 @@ k9s:
         mem:
           - '#eed49f'
           - '#f5a97f'
-    table:
-      fgColor: '#cad3f5'
-      bgColor: '#24273a'
-      cursorFgColor: '#363a4f'
-      cursorBgColor: '#494d64'
-      markColor: '#f4dbd6'
-      header:
-        fgColor: '#eed49f'
-        bgColor: '#24273a'
-        sorterColor: '#91d7e3'
-    xray:
-      fgColor: '#cad3f5'
-      bgColor: '#24273a'
-      cursorColor: '#494d64'
-      cursorTextColor: '#24273a'
-      graphicColor: '#f5bde6'
     yaml:
       keyColor: '#8aadf4'
-      colonColor: '#a5adcb'
       valueColor: '#cad3f5'
+      colonColor: '#a5adcb'
     logs:
       fgColor: '#cad3f5'
       bgColor: '#24273a'
       indicator:
         fgColor: '#b7bdf8'
         bgColor: '#24273a'
-  help:
-    fgColor: '#cad3f5'
-    bgColor: '#24273a'
-    sectionColor: '#a6da95'
-    keyColor: '#8aadf4'
-    numKeyColor: '#ee99a0'
+        toggleOnColor: '#a6da95'
+        toggleOffColor: '#a5adcb'
+  dialog:
+    fgColor: '#eed49f'
+    bgColor: '#939ab7'
+    buttonFgColor: '#24273a'
+    buttonBgColor: '#8087a2'
+    buttonFocusFgColor: '#24273a'
+    buttonFocusBgColor: '#f5bde6'
+    labelFgColor: '#f4dbd6'
+    fieldFgColor: '#cad3f5'
