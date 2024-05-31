@@ -1,0 +1,117 @@
+---
+whiskers:
+  version: "2.2.0"
+  matrix:
+    - variant: ["regular", "transparent"]
+    - flavor
+  filename: 'dist/catppuccin-{{ flavor.identifier }}{% if variant == "transparent" %}-transparent{% endif %}.yaml'
+---
+
+{%- macro maybe_transparent(color) -%}
+{%- if variant == "transparent" -%}
+default
+{%- else -%}
+'#{{ color.hex }}'
+{%- endif -%}
+{%- endmacro -%}
+
+k9s:
+  body:
+    fgColor: '#{{ text.hex }}'
+    bgColor: {{ self::maybe_transparent(color=base) }}
+    logoColor: '#{{ mauve.hex }}'
+  prompt:
+    fgColor: '#{{ text.hex }}'
+    bgColor: {{ self::maybe_transparent(color=mantle) }}
+    suggestColor: '#{{ blue.hex }}'
+  help:
+    fgColor: '#{{ text.hex }}'
+    bgColor: {{ self::maybe_transparent(color=base) }}
+    sectionColor: '#{{ green.hex }}'
+    keyColor: '#{{ blue.hex }}'
+    numKeyColor: '#{{ maroon.hex }}'
+  frame:
+    title:
+      fgColor: '#{{ teal.hex }}'
+      bgColor: {{ self::maybe_transparent(color=base) }}
+      highlightColor: '#{{ pink.hex }}'
+      counterColor: '#{{ yellow.hex }}'
+      filterColor: '#{{ green.hex }}'
+    border:
+      fgColor: '#{{ mauve.hex }}'
+      focusColor: '#{{ lavender.hex }}'
+    menu:
+      fgColor: '#{{ text.hex }}'
+      keyColor: '#{{ blue.hex }}'
+      numKeyColor: '#{{ maroon.hex }}'
+    crumbs:
+      fgColor: '#{{ base.hex }}'
+      bgColor: {{ self::maybe_transparent(color=maroon) }}
+      activeColor: '#{{ flamingo.hex }}'
+    status:
+      newColor: '#{{ blue.hex }}'
+      modifyColor: '#{{ lavender.hex }}'
+      addColor: '#{{ green.hex }}'
+      pendingColor: '#{{ peach.hex }}'
+      errorColor: '#{{ red.hex }}'
+      highlightColor: '#{{ sky.hex }}'
+      killColor: '#{{ mauve.hex }}'
+      completedColor: '#{{ overlay0.hex }}'
+  info:
+    fgColor: '#{{ peach.hex }}'
+    sectionColor: '#{{ text.hex }}'
+  views:
+    table:
+      fgColor: '#{{ text.hex }}'
+      bgColor: {{ self::maybe_transparent(color=base) }}
+      cursorFgColor: '#{{ surface0.hex }}'
+      cursorBgColor: '#{{ surface1.hex }}'
+      markColor: '#{{ rosewater.hex }}'
+      header:
+        fgColor: '#{{ yellow.hex }}'
+        bgColor: {{ self::maybe_transparent(color=base) }}
+        sorterColor: '#{{ sky.hex }}'
+    xray:
+      fgColor: '#{{ text.hex }}'
+      bgColor: {{ self::maybe_transparent(color=base) }}
+      cursorColor: '#{{ surface1.hex }}'
+      cursorTextColor: '#{{ base.hex }}'
+      graphicColor: '#{{ pink.hex }}'
+    charts:
+      bgColor: {{ self::maybe_transparent(color=base) }}
+      chartBgColor: {{ self::maybe_transparent(color=base) }}
+      dialBgColor: {{ self::maybe_transparent(color=base) }}
+      defaultDialColors:
+        - '#{{ green.hex }}'
+        - '#{{ red.hex }}'
+      defaultChartColors:
+        - '#{{ green.hex }}'
+        - '#{{ red.hex }}'
+      resourceColors:
+        cpu:
+          - '#{{ mauve.hex }}'
+          - '#{{ blue.hex }}'
+        mem:
+          - '#{{ yellow.hex }}'
+          - '#{{ peach.hex }}'
+    yaml:
+      keyColor: '#{{ blue.hex }}'
+      valueColor: '#{{ text.hex }}'
+      colonColor: '#{{ subtext0.hex }}'
+    logs:
+      fgColor: '#{{ text.hex }}'
+      bgColor: {{ self::maybe_transparent(color=base) }}
+      indicator:
+        fgColor: '#{{ lavender.hex }}'
+        bgColor: {{ self::maybe_transparent(color=base) }}
+        toggleOnColor: '#{{ green.hex }}'
+        toggleOffColor: '#{{ subtext0.hex }}'
+  dialog:
+    fgColor: '#{{ yellow.hex }}'
+    bgColor: {{ self::maybe_transparent(color=overlay2) }}
+    buttonFgColor: '#{{ base.hex }}'
+    buttonBgColor: {{ self::maybe_transparent(color=overlay1) }}
+    buttonFocusFgColor: '#{{ base.hex }}'
+    buttonFocusBgColor: '#{{ pink.hex }}'
+    labelFgColor: '#{{ rosewater.hex }}'
+    fieldFgColor: '#{{ text.hex }}'
