@@ -28,7 +28,7 @@ k9s:
       keyColor: '#8aadf4'
       numKeyColor: '#ee99a0'
     crumbs:
-      fgColor: '#24273a'
+      fgColor: '#6e738d'
       bgColor: default
       activeColor: '#f0c6c6'
     status:
